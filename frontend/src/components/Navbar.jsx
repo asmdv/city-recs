@@ -25,51 +25,36 @@ import {
     const navigate = useNavigate();
   
     
-  
     return (
-      <Box as="nav" bg="bg-surface" boxShadow="sm">
-        <Flex>
-          <Button
-            variant="ghost"
-            onClick={() => navigate("/")}
-            ml={10}
-            mt={5}
-            mr={10}
-            _hover={{ bg: "transparent" }}
-            fontFamily="Roboto"
-            fontWeight="bold"
-          >
-            <t>Home</t>
-          </Button>
-          <Button
-            variant="ghost"
-            onClick={() => navigate("/quiz")}
-            mt={5}
-            mr={10}
-            _hover={{ bg: "transparent" }}
-            fontFamily="Roboto"
-            fontWeight="light"
-          >
-            <t>Quiz</t>
-          </Button>
-
-          <Button
-            variant="ghost"
-            onClick={() => navigate("/history")}
-            mt={5}
-            mr={10}
-            _hover={{ bg: "transparent" }}
-            fontFamily="Roboto"
-            fontWeight="light"
-          >
-            <t>History</t>
-          </Button>
-  
-          
-  
-          
-        </Flex>
-      </Box>
+        <Box as="nav" bg="bg-surface" boxShadow="sm" p={2}>
+  <Flex align="center" width="100%"> 
+    <img
+      src="logo.png"
+      width="70px"
+      alt="Logo"
+      style={{ marginLeft: "30px" }}
+      onClick={() => navigate("/")}
+    />
+    {isDesktop ? (
+      <Flex justify="flex-start" flex="1" marginLeft="30px"> {/* Align buttons to the left */}
+        <ButtonGroup variant="link" spacing="8">
+          <Button key="Home" onClick={() => navigate('/')} variant="ghost">Home</Button>
+          <Button key="Quiz" onClick={() => navigate('/quiz')} variant="ghost">Quiz</Button>
+          <Button key="History" onClick={() => navigate('/history')} variant="ghost">History</Button>
+        </ButtonGroup>
+      </Flex>
+    ) : (
+      <IconButton 
+        alignSelf="center"
+        marginLeft="auto"
+        marginRight="10px"
+        variant="ghost"
+        icon={<FiMenu fontSize="1.25rem" />} 
+        aria-label="Open Menu"
+      />
+    )}
+  </Flex>
+</Box>
     );
   }
   
