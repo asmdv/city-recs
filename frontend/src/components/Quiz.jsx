@@ -48,14 +48,8 @@ export default function Quiz() {
                 <option value="Developer">Developer</option>
                 <option value="Designer">Designer</option>
                 <option value="Manager">Manager</option>
-                <option value="Other">Other</option>
+                <option value="Doctor">Doctor</option>
               </Select>
-              {isOther && (
-              <FormControl id="customOccupation" isRequired>
-                <FormLabel>Custom Occupation</FormLabel>
-                <Input type="text" value={formData.customOccupation} onChange={handleChange} placeholder="Enter your occupation" />
-              </FormControl>
-            )}
           </FormControl>
         );
       case 1:
@@ -95,6 +89,17 @@ export default function Quiz() {
             </Select>
           </FormControl>
         );
+        case 3:
+        return (
+          <FormControl id="color">
+            <FormLabel>Color</FormLabel>
+            <Input
+              type="color"
+              value={formData.color}
+              onChange={handleChange}
+            />
+          </FormControl>
+        );
       default:
         return (
           <Text>Thank you! Your form has been submitted.</Text>
@@ -120,10 +125,10 @@ export default function Quiz() {
               {step > 0 && (
                 <Button onClick={handlePrev} colorScheme="blue" size="md">Previous</Button>
               )}
-              {step < 2 && (
+              {step < 3 && (
                 <Button onClick={handleNext} colorScheme="blue" size="md">Next</Button>
               )}
-              {step === 2 && (
+              {step === 3 && (
                 <Button type="submit" colorScheme="blue" size="md">Submit</Button>
               )}
             </Stack>

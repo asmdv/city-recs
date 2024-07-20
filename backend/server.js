@@ -63,6 +63,7 @@ app.get('/events', (req, res) => {
     }
   
     const query = 'SELECT * FROM cities WHERE city = ?';
+    
     db.all(query, [city], (err, rows) => {
       if (err) {
         return res.status(500).json({ error: err.message });
