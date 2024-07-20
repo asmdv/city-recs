@@ -89,7 +89,7 @@ export default function Quiz() {
   return (
     <div>
    <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
-   <Progress value={(step / 2) * 100} mb={4} mt={5}/>
+   <Progress value={(step / 2) * 100} mb={4} mt={3}/>
         <form onSubmit={handleSubmit}>
           <Stack spacing={4}>
             {renderStep()}

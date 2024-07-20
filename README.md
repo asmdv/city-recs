@@ -1,4 +1,8 @@
 # intern-hacks
 
 
-City recommender for young adults based on mood, personality, etc 
+## Instructions for running the frontend:
+
+- cd frontend
+- npm install
+- npm run dev
