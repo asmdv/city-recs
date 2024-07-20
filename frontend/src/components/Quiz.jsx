@@ -116,7 +116,7 @@ export default function Quiz() {
         
       </Box>) : (
       <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
-        <Output />
+        <Output city="Seattle" image="https://wallpaperaccess.com/full/123595.jpg" text="This is Seattle." landmark="https://th.bing.com/th/id/OIP.7aGjEmFjl6U2oB6MKVFlYAHaLH?rs=1&pid=ImgDetMain"/>
         </Box>)
         }
       
