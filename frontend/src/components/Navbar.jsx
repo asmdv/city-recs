@@ -49,7 +49,7 @@ import {
         marginLeft="auto"
         marginRight="10px"
         variant="ghost"
-        icon={<FiMenu fontSize="1.25rem" />} 
+        icon={<span style={{ fontSize: "1.25rem" }}>☰</span>} 
         aria-label="Open Menu"
       />
     )}
