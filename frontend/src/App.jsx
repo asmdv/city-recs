@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Quiz from './components/Quiz'
 import History from './components/History'
+import Output from './components/Output'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +19,7 @@ function App() {
           {/* Add more routes as needed */}
           <Route path="/" element={<Home />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/output" element={<Output />} />
           <Route path="/history" element={<History />} />
         </Routes>
       </div>
