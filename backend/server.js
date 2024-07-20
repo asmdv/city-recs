@@ -35,7 +35,7 @@ app.get('/', async(req,res) => {
 })
 
 
-// Endpoint to handle form submission
+// Endpoint to handle form submission (FIXXXXXX)
 app.post('/submit', (req, res) => {
     const { name, occupation, customOccupation, password, mbti } = req.body;
 
@@ -45,13 +45,47 @@ app.post('/submit', (req, res) => {
       INSERT INTO cities (name, imgpath, info)
       VALUES (?, ?, ?)
     `;
-    db.run(query, [name, occupation, customOccupation, password, mbti], function(err) {
+    db.run(query, [name, imgpath, customOccupation, password, mbti], function(err) {
       if (err) {
         return res.status(500).json({ error: err.message });
       }
       res.status(200).json({ id: this.lastID });
     });
   });
+
+// Endpoint to add a city to cities DB
+app.post('/addCity', (req, res) => {
+    const { name, imgpath, info } = req.body;
+
+    const query = `
+      INSERT INTO cities (name, imgpath, info)
+      VALUES (?, ?, ?)
+    `;
+    db.run(query, [name, imgpath, info], function(err) {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      res.status(200).json({ id: this.lastID });
+    });
+});
+
+
+// Endpoint to get a city by ID
+app.get('/getCity/:id', (req, res) => {
+    const { id } = req.params;
+    
+    const query = `SELECT * FROM cities WHERE id = ?`;
+    db.get(query, [id], (err, row) => {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (row) {
+            res.status(200).json(row);
+        } else {
+            res.status(404).json({ error: 'City not found' });
+        }
+    });
+});
 
 
 // Endpoint to get events by city
