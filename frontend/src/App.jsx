@@ -9,7 +9,6 @@ import History from './components/History'
 import Output from './components/Output'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

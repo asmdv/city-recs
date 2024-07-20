@@ -1,10 +1,13 @@
 import React from 'react'
 import {  Box, Button, FormControl, FormLabel, Input, Stack, Text, Select, Progress } from '@chakra-ui/react';
 import { useState } from 'react';
+import Output from './Output';
 
 export default function Quiz() {
 
+
   const [step, setStep] = useState(0);
+  const [submitted, setSubmitted] = useState(false);
   const [isOther, setIsOther] = useState(false);
   const [formData, setFormData] = useState({
     occupation: '',
@@ -31,6 +34,7 @@ export default function Quiz() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    setSubmitted(true);
     // You can add form submission logic here
   };
 
@@ -56,7 +60,7 @@ export default function Quiz() {
         );
       case 1:
         return (
-          <FormControl id="location" isRequired>
+          <FormControl id="location" >
             <FormLabel>Location</FormLabel>
             <Select value={formData.location} onChange={handleChange} placeholder="Select your location">
               <option value="New York">New York</option>
@@ -69,7 +73,7 @@ export default function Quiz() {
         );
       case 2:
         return (
-          <FormControl id="password" isRequired>
+          <FormControl id="password" >
             <FormLabel>Password</FormLabel>
             <Input type="password" value={formData.password} onChange={handleChange} placeholder="Enter your password" />
           </FormControl>
@@ -88,6 +92,7 @@ export default function Quiz() {
 
   return (
     <div>
+      {!submitted ? (
    <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
    <Progress value={(step / 2) * 100} mb={4} mt={3}/>
         <form onSubmit={handleSubmit}>
@@ -109,7 +114,11 @@ export default function Quiz() {
         </form>
         
         
-      </Box>
+      </Box>) : (
+      <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
+        <Output />
+        </Box>)
+        }
       
       </div>
   )
