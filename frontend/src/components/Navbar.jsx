@@ -14,6 +14,7 @@ import {
   import React, { useState, useEffect } from "react";
   import { Divider } from "@chakra-ui/react";
   import axios from "axios";
+  import { useLocation } from 'react-router-dom';
   
   function Navbar() {
     const isDesktop = useBreakpointValue({
@@ -23,6 +24,8 @@ import {
       lg: true,
     });
     const navigate = useNavigate();
+
+    const location = useLocation();
   
     
     return (
@@ -35,7 +38,7 @@ import {
       style={{ marginLeft: "30px" }}
       onClick={() => navigate("/")}
     />
-    {isDesktop ? (
+    {isDesktop && location.pathname !== '/' && (
       <Flex justify="flex-start" flex="1" marginLeft="30px"> {/* Align buttons to the left */}
         <ButtonGroup variant="link" spacing="8">
           <Button key="Home" onClick={() => navigate('/')} variant="ghost">Home</Button>
@@ -43,16 +46,16 @@ import {
           <Button key="History" onClick={() => navigate('/history')} variant="ghost">History</Button>
         </ButtonGroup>
       </Flex>
-    ) : (
-      <IconButton 
-        alignSelf="center"
-        marginLeft="auto"
-        marginRight="10px"
-        variant="ghost"
-        icon={<span style={{ fontSize: "1.25rem" }}>☰</span>} 
-        aria-label="Open Menu"
-      />
-    )}
+    ) }
+    {isDesktop && location.pathname === '/' && (
+      <Flex justify="flex-start" flex="1" marginLeft="30px"> {/* Align buttons to the left */}
+        <ButtonGroup variant="link" spacing="8">
+          <Button key="Home" onClick={() => navigate('/')} variant="ghost" color="white" _hover={{ bg: 'black' }} >Home</Button>
+          <Button key="Quiz" onClick={() => navigate('/quiz')} variant="ghost" color="white" _hover={{ bg: 'black' }}>Quiz</Button>
+          <Button key="History" onClick={() => navigate('/history')} variant="ghost" color="white" _hover={{ bg: 'black' }}>History</Button>
+        </ButtonGroup>
+      </Flex>
+    ) }
   </Flex>
 </Box>
     );
