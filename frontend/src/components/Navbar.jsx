@@ -43,14 +43,26 @@ import {
           </Button>
           <Button
             variant="ghost"
-            onClick={() => navigate("/city")}
+            onClick={() => navigate("/quiz")}
             mt={5}
             mr={10}
             _hover={{ bg: "transparent" }}
             fontFamily="Roboto"
             fontWeight="light"
           >
-            <t>City</t>
+            <t>Quiz</t>
+          </Button>
+
+          <Button
+            variant="ghost"
+            onClick={() => navigate("/history")}
+            mt={5}
+            mr={10}
+            _hover={{ bg: "transparent" }}
+            fontFamily="Roboto"
+            fontWeight="light"
+          >
+            <t>History</t>
           </Button>
   
           

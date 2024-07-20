@@ -4,7 +4,8 @@ import { ChakraProvider, useToast } from "@chakra-ui/react";
 import './App.css'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import City from './components/City'
+import Quiz from './components/Quiz'
+import History from './components/History'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,7 +17,8 @@ function App() {
         <Routes>
           {/* Add more routes as needed */}
           <Route path="/" element={<Home />} />
-          <Route path="/city" element={<City />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </div>
     </>
