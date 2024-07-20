@@ -73,9 +73,26 @@ export default function Quiz() {
         );
       case 2:
         return (
-          <FormControl id="password" >
-            <FormLabel>Password</FormLabel>
-            <Input type="password" value={formData.password} onChange={handleChange} placeholder="Enter your password" />
+          <FormControl id="mbti">
+            <FormLabel>MBTI</FormLabel>
+            <Select value={formData.mbti} onChange={handleChange} placeholder="Select your MBTI">
+              <option value="INTJ">INTJ</option>
+              <option value="INTP">INTP</option>
+              <option value="ENTJ">ENTJ</option>
+              <option value="ENTP">ENTP</option>
+              <option value="INFJ">INFJ</option>
+              <option value="INFP">INFP</option>
+              <option value="ENFJ">ENFJ</option>
+              <option value="ENFP">ENFP</option>
+              <option value="ISTJ">ISTJ</option>
+              <option value="ISFJ">ISFJ</option>
+              <option value="ESTJ">ESTJ</option>
+              <option value="ESFJ">ESFJ</option>
+              <option value="ISTP">ISTP</option>
+              <option value="ISFP">ISFP</option>
+              <option value="ESTP">ESTP</option>
+              <option value="ESFP">ESFP</option>
+            </Select>
           </FormControl>
         );
       default:
