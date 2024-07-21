@@ -1,5 +1,6 @@
 {
     "model_url": "YOUR_URL",
     "apiKey": "YOUR_API_KEY",
-    "isTest": false
+    "pexelsApiKey": "YOU_API_KEY",
+    "isTest": true
 }
