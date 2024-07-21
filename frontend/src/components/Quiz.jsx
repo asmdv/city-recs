@@ -166,17 +166,6 @@ export default function Quiz() {
             </Select>
           </FormControl>
         );
-      case 8:
-      return (
-        <FormControl id="color">
-          <FormLabel>Color</FormLabel>
-          <Input
-            type="color"
-            value={formData.color}
-            onChange={handleChange}
-          />
-        </FormControl>
-      );
       default:
         return (
           <Text>Thank you! Your form has been submitted.</Text>
@@ -197,10 +186,10 @@ export default function Quiz() {
               {step > 0 && (
                 <Button onClick={handlePrev} colorScheme="blue" size="md">Previous</Button>
               )}
-              {step < 8 && (
+              {step < 7 && (
                 <Button onClick={handleNext} colorScheme="blue" size="md">Next</Button>
               )}
-              {step === 8 && (
+              {step === 7 && (
                 <Button type="submit" colorScheme="blue" size="md">Submit</Button>
               )}
             </Stack>
