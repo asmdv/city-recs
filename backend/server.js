@@ -107,7 +107,6 @@ app.post('/addCity', (req, res) => {
 });
 
 
-// Endpoint to get a city by ID
 app.get('/getCity/:id', (req, res) => {
     const { id } = req.params;
     
@@ -125,7 +124,6 @@ app.get('/getCity/:id', (req, res) => {
 });
 
 
-// Endpoint to get events by city
 app.get('/events', (req, res) => {
     const { city } = req.query;
   
@@ -151,7 +149,7 @@ app.post('/ask', async (req, res) => {
   
     try {
         var {occupation,  music, isTest} = req.body;
-        if (isTest){
+        if (isTest && isTest === true) {
           isTestEnv = true;
         }
         if (!occupation || !music) {
@@ -187,7 +185,6 @@ app.post('/ask', async (req, res) => {
     }
 });
 
-// Endpoint to get images for a certain city
 app.get('/city-images', async (req, res) => {
   const { city } = req.query;
 
@@ -217,7 +214,6 @@ app.get('/city-images', async (req, res) => {
 });
 
 
-  // Add code to listen for Azure deployment
   if (process.env.NODE_ENV === 'production') {
     app.listen(PORT, '0.0.0.0', () => {
       console.log(`Server running on port ${PORT}`);
