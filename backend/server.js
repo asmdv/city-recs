@@ -15,7 +15,6 @@ const db = new sqlite3.Database('cities.db', (err) => {
         CREATE TABLE IF NOT EXISTS cities (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           name TEXT,
-          imgpath TEXT,
           info TEXT
         )
       `);

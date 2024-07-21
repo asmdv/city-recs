@@ -3,6 +3,7 @@ import {  Box, Button, FormControl, FormLabel, Input, Stack, Text, Select, Progr
 import { useState } from 'react';
 import Output from './Output';
 
+
 export default function Quiz() {
 
 
@@ -38,6 +39,8 @@ export default function Quiz() {
     setSubmitted(true);
     // You can add form submission logic here
   };
+
+  
 
   const renderStep = () => {
     switch (step) {

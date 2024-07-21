@@ -1,7 +1,12 @@
 import React, { useRef, useEffect } from 'react'
 import { Box, Text, Heading, Image, Flex, Button } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+
+    const navigate = useNavigate();
+
+
   return (
     <Box  height="100vh" width="100vw" mt={8}>
   <video
@@ -31,6 +36,7 @@ const HomePage = () => {
     <Text fontSize="3xl" mb={8}>
       Choose your dream city of 1000s
     </Text>
+    <Button onClick={() => navigate('/quiz')}>Take a Quiz</Button>
   </Box>
 </Box>
   );
