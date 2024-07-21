@@ -2,10 +2,13 @@ const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 
 const PORT = process.env.PORT || 8080;
+
+const PEXELS_API_KEY = 'YHhc0Jmp8HBPWCjSypxPoSE3t4aDesVmxV250GrmPdnikEX8Rf0nklQI';
 
 const db = new sqlite3.Database('cities.db', (err) => {
     if (err) {
@@ -106,7 +109,34 @@ app.get('/events', (req, res) => {
     });
 });
 
+// Endpoint to get images for a certain city
+app.get('/city-images', async (req, res) => {
+  const { city } = req.query;
 
+  if (!city) {
+    return res.status(400).json({ error: 'City parameter is required' });
+  }
+
+  try {
+    const response = await axios.get('https://api.pexels.com/v1/search', {
+      params: { query: city, per_page: 10 },
+      headers: {
+        Authorization: PEXELS_API_KEY
+      }
+    });
+
+    const images = response.data.photos.map(photo => ({
+      id: photo.id,
+      url: photo.src.original,
+      description: photo.alt
+    }));
+
+    res.status(200).json(images);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error retrieving images' });
+  }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`)
