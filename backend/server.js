@@ -36,7 +36,7 @@ function prepareQuizPostBody(occupation, music) {
       messages: [
           {
               role: 'user',
-              content: `I work as a ${occupation}. I love ${music} music. Recommend 3 cities to move in. Don't add comments. Answer this way: City, State; City, State; City, State`
+              content: `I work as a ${occupation}. I love ${music} music. Recommend 3 cities in the United States to move in. Don't add comments. Answer this way: City, State; City, State; City, State`
           }
       ],
       max_tokens: 512,
