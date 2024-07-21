@@ -10,7 +10,7 @@ export default function Output(props) {
     useEffect(() => {
         const fetchImage = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/city-images?city=${props.city}`);
+            const response = await axios.get(`http://localhost:3000/city-images?city=${props.city}`);
             if (response.data.length > 0) {
             setImage(response.data[0]);
             setImages(response.data);

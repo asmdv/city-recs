@@ -62,7 +62,6 @@ function prepareExplainationPostBody(occupation, music, city) {
 }
 
 // Middleware
-app.use(cors());
 app.use(bodyParser.json());
 app.use(cors({
     origin: '*',
