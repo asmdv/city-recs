@@ -176,7 +176,7 @@ export default function Quiz() {
     }
   };
 
-  axios.defaults.baseURL = 'http://localhost:3000';
+  axios.defaults.baseURL = 'https://t-amammadov-internhacks-backend.azurewebsites.net';
   const handleSubmitButton = async () => {
     var occupation = formData.occupation;
     var music = formData.music;
