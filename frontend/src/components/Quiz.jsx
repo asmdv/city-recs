@@ -13,14 +13,14 @@ export default function Quiz() {
   const [submitted, setSubmitted] = useState(false);
   const [isOther, setIsOther] = useState(false);
   const [formData, setFormData] = useState({
-    occupation: '',
-    music: '',
-    EvsI: '',
-    E: '',
-    SvsN: '',
-    TvsF: '',
-    JvsP: '',
-    Q: ''
+    occupation: 'Accountant',
+    music: 'Blues',
+    EvsI: 'Center',
+    E: 'Interact',
+    SvsN: 'Experience',
+    TvsF: 'Logical',
+    JvsP: 'Organized',
+    Q: 'Social'
   });
 
   const handleChange = (e) => {
