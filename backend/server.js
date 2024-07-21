@@ -216,9 +216,17 @@ app.get('/city-images', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}/`)
-  });
+
+  // Add code to listen for Azure deployment
+  if (process.env.NODE_ENV === 'production') {
+    app.listen(PORT, '0.0.0.0', () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  } else {
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  }
 
 
 
