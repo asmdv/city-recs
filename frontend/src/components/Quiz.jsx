@@ -47,6 +47,11 @@ export default function Quiz() {
     // You can add form submission logic here
   };
 
+  function retakeQuiz(e) {
+    setSubmitted(false);
+    setStep(0);
+  }
+
   
 
   const renderStep = () => {
@@ -230,7 +235,7 @@ export default function Quiz() {
         
           {submitted && <Output city={city} image="https://wallpaperaccess.com/full/123595.jpg" text={description} />}
           <Box mt={5} display="flex" justifyContent="center">
-            <Button onClick={() => setSubmitted(false)}>Retake Quiz</Button>
+            <Button onClick={() => retakeQuiz()}>Retake Quiz</Button>
           </Box>
         </Box>
       </div>
