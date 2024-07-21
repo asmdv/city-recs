@@ -7,14 +7,18 @@ import Output from './Output';
 export default function Quiz() {
 
 
-
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [isOther, setIsOther] = useState(false);
   const [formData, setFormData] = useState({
     occupation: '',
     music: '',
-    password: '',
+    EvsI: '',
+    E: '',
+    SvsN: '',
+    TvsF: '',
+    JvsP: '',
+    Q: ''
   });
 
   const handleChange = (e) => {
@@ -102,41 +106,77 @@ export default function Quiz() {
             </Select>
           </FormControl>
         );
-      // case 2:
-      //   return (
-      //     <FormControl id="mbti">
-      //       <FormLabel>MBTI</FormLabel>
-      //       <Select value={formData.mbti} onChange={handleChange} placeholder="Select your MBTI">
-      //         <option value="INTJ">INTJ</option>
-      //         <option value="INTP">INTP</option>
-      //         <option value="ENTJ">ENTJ</option>
-      //         <option value="ENTP">ENTP</option>
-      //         <option value="INFJ">INFJ</option>
-      //         <option value="INFP">INFP</option>
-      //         <option value="ENFJ">ENFJ</option>
-      //         <option value="ENFP">ENFP</option>
-      //         <option value="ISTJ">ISTJ</option>
-      //         <option value="ISFJ">ISFJ</option>
-      //         <option value="ESTJ">ESTJ</option>
-      //         <option value="ESFJ">ESFJ</option>
-      //         <option value="ISTP">ISTP</option>
-      //         <option value="ISFP">ISFP</option>
-      //         <option value="ESTP">ESTP</option>
-      //         <option value="ESFP">ESFP</option>
-      //       </Select>
-      //     </FormControl>
-      //   );
-        case 2:
+      case 2:
         return (
-          <FormControl id="color">
-            <FormLabel>Color</FormLabel>
-            <Input
-              type="color"
-              value={formData.color}
-              onChange={handleChange}
-            />
+          <FormControl id="EvsI">
+            <FormLabel>MBTI</FormLabel>
+            <Select value={formData.EvsI} onChange={handleChange} placeholder="When you are in a social setting, do you:">
+              <option value="Center">Enjoy being the center of attention</option>
+              <option value="Observe">Prefer to observe and listen</option>
+            </Select>
           </FormControl>
         );
+      case 3:
+        return (
+          <FormControl id="EvsI">
+            <FormLabel>MBTI</FormLabel>
+            <Select value={formData.EvsI} onChange={handleChange} placeholder="Do you find it more rewarding to:">
+              <option value="Interact">Interact with a variety of people</option>
+              <option value="Meaningful">Have deep, meaningful conversations with a few people.</option>
+            </Select>
+          </FormControl>
+        );
+      case 4:
+        return (
+          <FormControl id="SvsN">
+            <FormLabel>MBTI</FormLabel>
+            <Select value={formData.SvsN} onChange={handleChange} placeholder="When making decisions, do you prefer to:">
+              <option value="Experience">Rely on your direct experience and facts</option>
+              <option value="Instincts">Trust your gut instincts and look at the big picture</option>
+            </Select>
+          </FormControl>
+        );
+      case 5:
+        return (
+          <FormControl id="TvsF">
+            <FormLabel>MBTI</FormLabel>
+            <Select value={formData.TvsF} onChange={handleChange} placeholder="In your work, do you prefer:">
+              <option value="Logical">Clarity and logical reasoning</option>
+              <option value="Harmony">Harmony and personal involvement</option>
+            </Select>
+          </FormControl>
+        );
+      case 6:
+        return (
+          <FormControl id="JvsP">
+            <FormLabel>MBTI</FormLabel>
+            <Select value={formData.JvsP} onChange={handleChange} placeholder="Do you prefer your life to be:">
+              <option value="Organized">Structured and organized</option>
+              <option value="Flexible">Flexible and spontaneous</option>
+            </Select>
+          </FormControl>
+        );
+      case 7:
+        return (
+          <FormControl id="Q&A">
+            <FormLabel>MBTI</FormLabel>
+            <Select value={formData.TvsF} onChange={handleChange} placeholder="In your free time, do you:">
+              <option value="Social">Seek out social activities</option>
+              <option value="Isolated">Prefer to spend time alone or with a few close friends</option>
+            </Select>
+          </FormControl>
+        );
+      case 8:
+      return (
+        <FormControl id="color">
+          <FormLabel>Color</FormLabel>
+          <Input
+            type="color"
+            value={formData.color}
+            onChange={handleChange}
+          />
+        </FormControl>
+      );
       default:
         return (
           <Text>Thank you! Your form has been submitted.</Text>
@@ -148,7 +188,7 @@ export default function Quiz() {
     <div>
       {!submitted ? (
    <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
-   <Progress value={(step / 2) * 100} mb={4} mt={3}/>
+   <Progress value={(step / 8) * 100} mb={4} mt={3}/>
         <form onSubmit={handleSubmit}>
           <Stack spacing={4}>
             {renderStep()}
@@ -157,10 +197,10 @@ export default function Quiz() {
               {step > 0 && (
                 <Button onClick={handlePrev} colorScheme="blue" size="md">Previous</Button>
               )}
-              {step < 2 && (
+              {step < 8 && (
                 <Button onClick={handleNext} colorScheme="blue" size="md">Next</Button>
               )}
-              {step === 2 && (
+              {step === 8 && (
                 <Button type="submit" colorScheme="blue" size="md">Submit</Button>
               )}
             </Stack>
