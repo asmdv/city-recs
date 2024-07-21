@@ -5,6 +5,7 @@ import ImageCarousel from './ImageCarousel';
 export default function Output(props) {
     const [image, setImage] = useState(null);
     const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchImage = async () => {
@@ -20,23 +21,42 @@ export default function Output(props) {
         };
 
         fetchImage();
+        
+        const loadingTimeout = setTimeout(() => {
+            setLoading(false);
+          }, 10000);
+
+          return () => clearTimeout(loadingTimeout);
     }, [props.city]);
 
   return (
     <div>
-    {image ? (
-        <img 
-          src={image.url} 
-          alt={image.description || props.city} 
-          style={{ width: '100%', maxWidth: '500px', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }} 
+      {loading ? (
+        <div>
+          <video
+            autoPlay
+            loop
+            muted
+            style={{ width: '100%', maxWidth: '500px', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }}
+            src="/timelapse.mp4"
         />
+          <p>Loading results...</p>
+        </div>
       ) : (
-        <p>Loading image...</p>
+        image && (
+        <div>
+          <img 
+            src={image.url} 
+            alt={image.description || props.city} 
+            style={{ width: '100%', maxWidth: '500px', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }} 
+          />
+          <h1>Congrats, you will love:</h1>
+        <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>{props.city}</h2>
+        <p>{props.text}</p>
+        <ImageCarousel images={images} />
+          </div>
+        )
       )}
-    Congrats, you will love: 
-    <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>{props.city}</h2>
-    {props.text}
-    <ImageCarousel images={images} />
     </div>
   )
 }
