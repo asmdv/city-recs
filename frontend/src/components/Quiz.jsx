@@ -199,11 +199,14 @@ export default function Quiz() {
         
       </Box>) : (
         <div>
-          <Button mt={5} onClick={() => setSubmitted(false)}>Go Back</Button>
-      <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
-        <Output city="Seattle" image="https://wallpaperaccess.com/full/123595.jpg" text="This is Seattle."/>
+        <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
+        
+          {submitted && <Output city="Seattle" image="https://wallpaperaccess.com/full/123595.jpg" text="This is Seattle." />}
+          <Box mt={5} display="flex" justifyContent="center">
+            <Button onClick={() => setSubmitted(false)}>Retake Quiz</Button>
+          </Box>
         </Box>
-        </div>
+      </div>
         )
         }
       
