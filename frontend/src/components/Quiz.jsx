@@ -60,7 +60,7 @@ export default function Quiz() {
         return (
           <FormControl id="occupation" isRequired>
             <FormLabel>Select your occupation</FormLabel>
-            <Select value={formData.occupation} onChange={handleChange} name="occupation" placeholder="Accountant">
+            <Select value={formData.occupation} onChange={handleChange} name="occupation">
               <option value="Accountant">Accountant</option>
               <option value="Actor">Actor</option>
               <option value="Artist">Artist</option>
@@ -94,7 +94,7 @@ export default function Quiz() {
         return (
           <FormControl id="music" isRequired >
             <FormLabel>Select your music taste</FormLabel>
-              <Select value={formData.music} onChange={handleChange} name="music" placeholder="Blues">
+              <Select value={formData.music} onChange={handleChange} name="music" >
               <option value="Blues">Blues</option>
               <option value="Classical">Classical</option>
               <option value="Country">Country</option>
@@ -118,7 +118,7 @@ export default function Quiz() {
         return (
           <FormControl id="EvsI" isRequired>
             <FormLabel>When you are in a social setting, do you:</FormLabel>
-            <Select value={formData.EvsI} onChange={handleChange} placeholder="Enjoy being the center of attention">
+            <Select value={formData.EvsI} onChange={handleChange} >
               <option value="Center">Enjoy being the center of attention</option>
               <option value="Observe">Prefer to observe and listen</option>
             </Select>
@@ -128,7 +128,7 @@ export default function Quiz() {
         return (
           <FormControl id="EvsI" isRequired>
             <FormLabel>Do you find it more rewarding to:</FormLabel>
-            <Select value={formData.EvsI} onChange={handleChange} placeholder="Interact with a variety of people">
+            <Select value={formData.EvsI} onChange={handleChange} >
               <option value="Interact">Interact with a variety of people</option>
               <option value="Meaningful">Have deep, meaningful conversations with a few people.</option>
             </Select>
@@ -138,7 +138,7 @@ export default function Quiz() {
         return (
           <FormControl id="SvsN" isRequired>
             <FormLabel>When making decisions, do you prefer to:</FormLabel>
-            <Select value={formData.SvsN} onChange={handleChange} placeholder="Rely on your direct experience and facts">
+            <Select value={formData.SvsN} onChange={handleChange} >
               <option value="Experience">Rely on your direct experience and facts</option>
               <option value="Instincts">Trust your gut instincts and look at the big picture</option>
             </Select>
@@ -148,7 +148,7 @@ export default function Quiz() {
         return (
           <FormControl id="TvsF" isRequired>
             <FormLabel>In your work, do you prefer:</FormLabel>
-            <Select value={formData.TvsF} onChange={handleChange} placeholder="Clarity and logical reasoning">
+            <Select value={formData.TvsF} onChange={handleChange} >
               <option value="Logical">Clarity and logical reasoning</option>
               <option value="Harmony">Harmony and personal involvement</option>
             </Select>
@@ -158,7 +158,7 @@ export default function Quiz() {
         return (
           <FormControl id="JvsP" isRequired>
             <FormLabel>Do you prefer your life to be:</FormLabel>
-            <Select value={formData.JvsP} onChange={handleChange} placeholder="Structured and organized">
+            <Select value={formData.JvsP} onChange={handleChange} >
               <option value="Organized">Structured and organized</option>
               <option value="Flexible">Flexible and spontaneous</option>
             </Select>
@@ -168,7 +168,7 @@ export default function Quiz() {
         return (
           <FormControl id="Q" isRequired>
             <FormLabel>In your free time, do you:</FormLabel>
-            <Select value={formData.Q} onChange={handleChange} placeholder="Seek out social activities">
+            <Select value={formData.Q} onChange={handleChange} >
               <option value="Social">Seek out social activities</option>
               <option value="Isolated">Prefer to spend time alone or with a few close friends</option>
             </Select>
