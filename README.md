@@ -1,7 +1,7 @@
 # intern-hacks
 
 # Frontend
-https://intern-hacks.vercel.app/
+https://intern-hacks2.vercel.app/
 
 
 
