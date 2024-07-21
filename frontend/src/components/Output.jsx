@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ImageCarousel from './ImageCarousel';
+import { Box, Image, Text, Heading } from '@chakra-ui/react';
 
 export default function Output(props) {
     const [image, setImage] = useState(null);
@@ -30,7 +31,7 @@ export default function Output(props) {
     }, [props.city]);
 
   return (
-    <div>
+    <Box>
       {loading ? (
         <div>
           <video
@@ -40,23 +41,43 @@ export default function Output(props) {
             style={{ width: '100%', maxWidth: '100vh', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }}
             src="/timelapse2.mp4"
         />
-          <p>Loading results...</p>
+          <Text
+            position="absolute"
+            top="50%"
+            left="50%"
+            transform="translate(-50%, -50%)"
+            color="white"
+            fontSize="3xl"
+            fontWeight="bold"
+            mt="30px"
+          >
+            Asking City Experts...
+          </Text>
         </div>
       ) : (
         image && (
-        <div>
-          <img 
-            src={image.url} 
-            alt={image.description || props.city} 
-            style={{ width: '100%', maxWidth: '500px', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }} 
-          />
-          <h1>Congrats, you will love:</h1>
-        <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>{props.city}</h2>
-        <p>{props.text}</p>
-        <ImageCarousel images={images} style={{marginTop: '5px'}} />
-          </div>
+          <Box>
+            <Image 
+              src={image.url} 
+              alt={image.description || props.city} 
+              width="100%" 
+              maxWidth="500px" 
+              maxHeight="500px" 
+              margin="auto" 
+              marginTop="10px" 
+              padding="5px" 
+              borderWidth="1px" 
+              borderRadius="lg" 
+            />
+            <Heading as="h1">Congrats, you will love:</Heading>
+            <Heading as="h2" fontSize="2rem" fontWeight="bold">{props.city}</Heading>
+            <Text>{props.text}</Text>
+            <Box marginTop="5px">
+              <ImageCarousel images={images} />
+            </Box>
+          </Box>
         )
       )}
-    </div>
+    </Box>
   )
 }
