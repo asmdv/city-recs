@@ -185,10 +185,8 @@ export default function Quiz() {
     try {
       const response = await axios.post('/ask', { occupation, music, isTest });
 
-      console.log("Success!");
-      console.log(response);
-
-      const city = response.data.cities[0];
+      const modifiedCity = response.data.cities[0];
+      const city = modifiedCity.split(',')[0];
       setCity(city);
 
       const description = response.data.explanation;
