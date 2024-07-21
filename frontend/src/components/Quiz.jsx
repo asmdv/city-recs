@@ -59,8 +59,8 @@ export default function Quiz() {
       case 0:
         return (
           <FormControl id="occupation" isRequired>
-            <FormLabel>Occupation</FormLabel>
-            <Select value={formData.occupation} onChange={handleChange} name="occupation" placeholder="Select your occupation">
+            <FormLabel>Select your occupation</FormLabel>
+            <Select value={formData.occupation} onChange={handleChange} name="occupation" placeholder="Accountant">
               <option value="Accountant">Accountant</option>
               <option value="Actor">Actor</option>
               <option value="Artist">Artist</option>
@@ -93,8 +93,8 @@ export default function Quiz() {
       case 1:
         return (
           <FormControl id="music" isRequired >
-            <FormLabel>Music Taste</FormLabel>
-              <Select value={formData.music} onChange={handleChange} name="music" placeholder="Select your music taste">
+            <FormLabel>Select your music taste</FormLabel>
+              <Select value={formData.music} onChange={handleChange} name="music" placeholder="Blues">
               <option value="Blues">Blues</option>
               <option value="Classical">Classical</option>
               <option value="Country">Country</option>
@@ -117,8 +117,8 @@ export default function Quiz() {
       case 2:
         return (
           <FormControl id="EvsI" isRequired>
-            <FormLabel>MBTI</FormLabel>
-            <Select value={formData.EvsI} onChange={handleChange} placeholder="When you are in a social setting, do you:">
+            <FormLabel>When you are in a social setting, do you:</FormLabel>
+            <Select value={formData.EvsI} onChange={handleChange} placeholder="Enjoy being the center of attention">
               <option value="Center">Enjoy being the center of attention</option>
               <option value="Observe">Prefer to observe and listen</option>
             </Select>
@@ -127,8 +127,8 @@ export default function Quiz() {
       case 3:
         return (
           <FormControl id="EvsI" isRequired>
-            <FormLabel>MBTI</FormLabel>
-            <Select value={formData.EvsI} onChange={handleChange} placeholder="Do you find it more rewarding to:">
+            <FormLabel>Do you find it more rewarding to:</FormLabel>
+            <Select value={formData.EvsI} onChange={handleChange} placeholder="Interact with a variety of people">
               <option value="Interact">Interact with a variety of people</option>
               <option value="Meaningful">Have deep, meaningful conversations with a few people.</option>
             </Select>
@@ -137,8 +137,8 @@ export default function Quiz() {
       case 4:
         return (
           <FormControl id="SvsN" isRequired>
-            <FormLabel>MBTI</FormLabel>
-            <Select value={formData.SvsN} onChange={handleChange} placeholder="When making decisions, do you prefer to:">
+            <FormLabel>When making decisions, do you prefer to:</FormLabel>
+            <Select value={formData.SvsN} onChange={handleChange} placeholder="Rely on your direct experience and facts">
               <option value="Experience">Rely on your direct experience and facts</option>
               <option value="Instincts">Trust your gut instincts and look at the big picture</option>
             </Select>
@@ -147,8 +147,8 @@ export default function Quiz() {
       case 5:
         return (
           <FormControl id="TvsF" isRequired>
-            <FormLabel>MBTI</FormLabel>
-            <Select value={formData.TvsF} onChange={handleChange} placeholder="In your work, do you prefer:">
+            <FormLabel>In your work, do you prefer:</FormLabel>
+            <Select value={formData.TvsF} onChange={handleChange} placeholder="Clarity and logical reasoning">
               <option value="Logical">Clarity and logical reasoning</option>
               <option value="Harmony">Harmony and personal involvement</option>
             </Select>
@@ -157,8 +157,8 @@ export default function Quiz() {
       case 6:
         return (
           <FormControl id="JvsP" isRequired>
-            <FormLabel>MBTI</FormLabel>
-            <Select value={formData.JvsP} onChange={handleChange} placeholder="Do you prefer your life to be:">
+            <FormLabel>Do you prefer your life to be:</FormLabel>
+            <Select value={formData.JvsP} onChange={handleChange} placeholder="Structured and organized">
               <option value="Organized">Structured and organized</option>
               <option value="Flexible">Flexible and spontaneous</option>
             </Select>
@@ -167,8 +167,8 @@ export default function Quiz() {
       case 7:
         return (
           <FormControl id="Q" isRequired>
-            <FormLabel>MBTI</FormLabel>
-            <Select value={formData.Q} onChange={handleChange} placeholder="In your free time, do you:">
+            <FormLabel>In your free time, do you:</FormLabel>
+            <Select value={formData.Q} onChange={handleChange} placeholder="Seek out social activities">
               <option value="Social">Seek out social activities</option>
               <option value="Isolated">Prefer to spend time alone or with a few close friends</option>
             </Select>
