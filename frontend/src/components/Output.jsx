@@ -53,7 +53,7 @@ export default function Output(props) {
           <h1>Congrats, you will love:</h1>
         <h2 style={{ fontSize: '2rem', fontWeight: 'bold' }}>{props.city}</h2>
         <p>{props.text}</p>
-        <ImageCarousel images={images} />
+        <ImageCarousel images={images} style={{marginTop: '5px'}} />
           </div>
         )
       )}

@@ -7,7 +7,7 @@ export default function ImageCarousel(props) {
     <Carousel>
       {props.images.map((image, index) => (
         <div key={index}>
-          <img src={image.url} alt={image.alt} style={{ width: '100%', maxWidth: '500px', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }} />
+          <img src={image.url} alt={image.alt} style={{ width: '100%', maxWidth: '500px', margin: 'auto', marginTop: '1px', padding: '1px', borderWidth: '1px', borderRadius: 'lg' }} />
         </div>
       ))}
     </Carousel>
