@@ -178,9 +178,10 @@ export default function Quiz() {
   const handleSubmitButton = async () => {
     var occupation = formData.occupation;
     var music = formData.music;
+    var isTest = formData.isTest || false;
 
     try {
-      const response = await axios.post('/ask', { occupation, music });
+      const response = await axios.post('/ask', { occupation, music, isTest });
 
       console.log(response);
     } catch (error) {
