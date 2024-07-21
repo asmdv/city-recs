@@ -6,6 +6,7 @@ import Output from './Output';
 export default function Quiz() {
 
 
+
   const [step, setStep] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [isOther, setIsOther] = useState(false);
@@ -137,9 +138,13 @@ export default function Quiz() {
         
         
       </Box>) : (
+        <div>
+          <Button mt={5} onClick={() => setSubmitted(false)}>Go Back</Button>
       <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
         <Output city="Seattle" image="https://wallpaperaccess.com/full/123595.jpg" text="This is Seattle."/>
-        </Box>)
+        </Box>
+        </div>
+        )
         }
       
       </div>
