@@ -160,7 +160,7 @@ app.post('/ask', async (req, res) => {
         var bodyData = prepareQuizPostBody(occupation=occupation, music=music);
         var result;
         var response;
-        if (isTest)
+        if (isTestEnv)
           result = extra.testCities;
         else {
           response = await axios.post(url, bodyData, { headers });
@@ -171,7 +171,7 @@ app.post('/ask', async (req, res) => {
         const matches = result.match(regex) || []; // Use match() with the regex, default to empty array if null
         
         var explanation;
-        if (isTest){
+        if (isTestEnv){
             explanation = extra.testExplanation;
         } else {
           var bodyData = prepareExplainationPostBody(occupation=occupation, music=music, city=matches[0]);
@@ -179,7 +179,7 @@ app.post('/ask', async (req, res) => {
           explanation = response.data.choices[0].message.content;
         }
 
-        var finalResponse = {"cities": matches, "explanation": explanation, "isTest": isTest};
+        var finalResponse = {"cities": matches, "explanation": explanation, "isTest": isTestEnv};
         res.send(finalResponse);
       } catch (error) {
         console.error(error);
