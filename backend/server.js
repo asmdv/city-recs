@@ -5,12 +5,13 @@ const cors = require('cors');
 const axios = require('axios');
 
 const config = require('./config.json');
+const extra = require('./extra.json');
 
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-const PEXELS_API_KEY = 'YHhc0Jmp8HBPWCjSypxPoSE3t4aDesVmxV250GrmPdnikEX8Rf0nklQI';
+const PEXELS_API_KEY = config.pexelsApiKey;
 
 const db = new sqlite3.Database('cities.db', (err) => {
     if (err) {
@@ -28,14 +29,29 @@ const db = new sqlite3.Database('cities.db', (err) => {
 
 const url = `${config.model_url}/v1/chat/completions`;
 const apiKey = config.apiKey;
-const isTest = config.isTest;
+var isTestEnv = config.isTest;
 
-function preparePostBody(occupation, music) {
+function prepareQuizPostBody(occupation, music) {
   var data = {
       messages: [
           {
               role: 'user',
-              content: `I work as a ${occupation}. I love ${music} music. Recommend 3 cities to move in. Don't add comments. Answer this way: City, State.`
+              content: `I work as a ${occupation}. I love ${music} music. Recommend 3 cities to move in. Don't add comments. Answer this way: City, State; City, State; City, State`
+          }
+      ],
+      max_tokens: 512,
+      temperature: 0.7,
+      top_p: 1
+  };
+  return data
+}
+
+function prepareExplainationPostBody(occupation, music, city) {
+  var data = {
+      messages: [
+          {
+              role: 'user',
+              content: `I work as a ${occupation}. I love ${music} music. Why would I like ${city}? Explain in one paragraph.`
           }
       ],
       max_tokens: 1024,
@@ -135,23 +151,40 @@ app.post('/ask', async (req, res) => {
     };
   
     try {
-        var {occupation,  music} = req.body;
-        console.log(occupation)
+        var {occupation,  music, isTest} = req.body;
+        if (isTest){
+          isTestEnv = true;
+        }
         if (!occupation || !music) {
             throw error("Invalid request. Body")
         }
-        var bodyData = preparePostBody(occupation=occupation, music=music);
+        var bodyData = prepareQuizPostBody(occupation=occupation, music=music);
         var result;
         var response;
         if (isTest)
-          result = "New York, New York\nLos Angeles, California\nChicago, Illinois\n\n(This is test response)"
+          result = extra.testCities;
         else {
           response = await axios.post(url, bodyData, { headers });
           result = response.data.choices[0].message.content;
         }
-        res.send(result);
-    } catch (error) {
-            console.error(error)
+        // Use regex to extract city and state names
+        const regex = /\b([A-Za-z\s]+),\s*([A-Za-z\s]+)\b/g;
+        const matches = result.match(regex) || []; // Use match() with the regex, default to empty array if null
+        
+        var explanation;
+        if (isTest){
+            explanation = extra.testExplanation;
+        } else {
+          var bodyData = prepareExplainationPostBody(occupation=occupation, music=music, city=matches[0]);
+          response = await axios.post(url, bodyData, { headers });
+          explanation = response.data.choices[0].message.content;
+        }
+
+        var finalResponse = {"cities": matches, "explanation": explanation, "isTest": isTest};
+        res.send(finalResponse);
+      } catch (error) {
+        console.error(error);
+        res.status(500).send("An error occurred on the server.");
     }
 });
 
