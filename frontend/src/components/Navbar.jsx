@@ -43,7 +43,6 @@ import {
         <ButtonGroup variant="link" spacing="8">
           <Button key="Home" onClick={() => navigate('/')} variant="ghost">Home</Button>
           <Button key="Quiz" onClick={() => navigate('/quiz')} variant="ghost">Quiz</Button>
-          <Button key="History" onClick={() => navigate('/history')} variant="ghost">History</Button>
         </ButtonGroup>
       </Flex>
     ) }
@@ -52,7 +51,6 @@ import {
         <ButtonGroup variant="link" spacing="8">
           <Button key="Home" onClick={() => navigate('/')} variant="ghost" color="white" _hover={{ bg: 'black' }} >Home</Button>
           <Button key="Quiz" onClick={() => navigate('/quiz')} variant="ghost" color="white" _hover={{ bg: 'black' }}>Quiz</Button>
-          <Button key="History" onClick={() => navigate('/history')} variant="ghost" color="white" _hover={{ bg: 'black' }}>History</Button>
         </ButtonGroup>
       </Flex>
     ) }

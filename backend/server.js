@@ -4,10 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
 
-const app = express();
 const config = require('./config.json');
-const axios = require('axios');
 
+const app = express();
 
 const PORT = process.env.PORT || 3000;
 
@@ -21,7 +20,6 @@ const db = new sqlite3.Database('cities.db', (err) => {
         CREATE TABLE IF NOT EXISTS cities (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           name TEXT,
-          imgpath TEXT,
           info TEXT
         )
       `);
