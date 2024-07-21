@@ -123,7 +123,7 @@ export default function Quiz() {
       //       </Select>
       //     </FormControl>
       //   );
-        case 3:
+        case 2:
         return (
           <FormControl id="color">
             <FormLabel>Color</FormLabel>
@@ -154,10 +154,10 @@ export default function Quiz() {
               {step > 0 && (
                 <Button onClick={handlePrev} colorScheme="blue" size="md">Previous</Button>
               )}
-              {step < 3 && (
+              {step < 2 && (
                 <Button onClick={handleNext} colorScheme="blue" size="md">Next</Button>
               )}
-              {step === 3 && (
+              {step === 2 && (
                 <Button type="submit" colorScheme="blue" size="md">Submit</Button>
               )}
             </Stack>
