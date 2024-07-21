@@ -34,7 +34,7 @@ const HomePage = () => {
   >
     <Heading fontSize="6xl" mb={8}>Welcome to CityRecs!</Heading>
     <Text fontSize="3xl" mb={8}>
-      Choose your dream city of 1000s
+      Choose your dream city out of thousands
     </Text>
     <Button onClick={() => navigate('/quiz')}>Take a Quiz</Button>
   </Box>
