@@ -8,7 +8,8 @@ export default function Quiz() {
 
 
   const [step, setStep] = useState(0);
-  const [modifiedCity, setCity] = useState('');
+  const [description, setDescription] = useState('');
+  const [city, setCity] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [isOther, setIsOther] = useState(false);
   const [formData, setFormData] = useState({
@@ -188,9 +189,10 @@ export default function Quiz() {
       console.log(response);
 
       const city = response.data.cities[0];
-      const modifiedCity = city.split(' ').join('%20');
-      console.log(modifiedCity);
-      setCity(modifiedCity);
+      setCity(city);
+
+      const description = response.data.explanation;
+      setDescription(description);
 
     } catch (error) {
       console.error('There was an error!', error.response);
@@ -226,7 +228,7 @@ export default function Quiz() {
         <div>
         <Box width="100%" maxWidth="500px" mx="auto" mt={10} p={5} borderWidth="1px" borderRadius="lg">
         
-          {submitted && <Output city={modifiedCity} image="https://wallpaperaccess.com/full/123595.jpg" text={`This is ${modifiedCity}`} />}
+          {submitted && <Output city={city} image="https://wallpaperaccess.com/full/123595.jpg" text={description} />}
           <Box mt={5} display="flex" justifyContent="center">
             <Button onClick={() => setSubmitted(false)}>Retake Quiz</Button>
           </Box>
