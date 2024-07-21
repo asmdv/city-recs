@@ -148,8 +148,8 @@ export default function Quiz() {
           <FormControl id="JvsP">
             <FormLabel>MBTI</FormLabel>
             <Select value={formData.JvsP} onChange={handleChange} placeholder="Do you prefer your life to be:">
-              <option value="Logical">Structured and organized</option>
-              <option value="Harmony">Flexible and spontaneous</option>
+              <option value="Organized">Structured and organized</option>
+              <option value="Flexible">Flexible and spontaneous</option>
             </Select>
           </FormControl>
         );
@@ -158,8 +158,8 @@ export default function Quiz() {
           <FormControl id="Q&A">
             <FormLabel>MBTI</FormLabel>
             <Select value={formData.TvsF} onChange={handleChange} placeholder="In your free time, do you:">
-              <option value="Logical">Seek out social activities</option>
-              <option value="Harmony">Prefer to spend time alone or with a few close friends</option>
+              <option value="Social">Seek out social activities</option>
+              <option value="Isolated">Prefer to spend time alone or with a few close friends</option>
             </Select>
           </FormControl>
         );
