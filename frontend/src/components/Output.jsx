@@ -37,8 +37,8 @@ export default function Output(props) {
             autoPlay
             loop
             muted
-            style={{ width: '100%', maxWidth: '500px', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }}
-            src="/timelapse.mp4"
+            style={{ width: '100%', maxWidth: '100vh', margin: 'auto', marginTop: '10px', padding: '5px', borderWidth: '1px', borderRadius: 'lg' }}
+            src="/timelapse2.mp4"
         />
           <p>Loading results...</p>
         </div>
