@@ -14,7 +14,7 @@ export default function Output(props) {
             const response = await axios.get(`https://t-amammadov-internhacks-backend.azurewebsites.net/city-images?city=${props.city}`);
             if (response.data.length > 0) {
             setImage(response.data[0]);
-            setImages(response.data);
+            setImages(response.data.slice(1));
         }
         } catch (error) {
             console.error('Error fetching image:', error);
