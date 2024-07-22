@@ -1,4 +1,4 @@
-# intern-hacks
+# Winner of Community and Accessibility (Intern Hacks @ Microsoft)
 
 # Frontend
 https://intern-hacks2.vercel.app/
